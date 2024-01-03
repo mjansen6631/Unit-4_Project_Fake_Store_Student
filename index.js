@@ -7,3 +7,6 @@ let electronics = [];
 let jewelery = [];
 let mensClothing = [];
 let womensClothing = [];
+
+// console.log(fetch);
+// Testing if this pulls up an array
