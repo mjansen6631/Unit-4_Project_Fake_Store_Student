@@ -8,9 +8,25 @@ body {
 }
 
 .navbar {
-    font-weight: bold;
     width: 100%;
     position:sticky;
     top:0;
     background-color: green;
+}
+
+#display{
+    align-content: center;
+}
+
+footer{
+    text-align: center;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+}
+h8{
+    color: white;
 }

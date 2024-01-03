@@ -36,11 +36,11 @@ const createCards = function (item) {
     }
 
 // Working on the event listeners.
-    electronics.addEventListener("click", e => {
+    electronics.addEventListener("click", () => {
     })
-    jewelery.addEventListener("click", e => {
+    jewelery.addEventListener("click", () => {
     })
-    mensClothing.addEventListener("click", e => {
+    mensClothing.addEventListener("click", () => {
     })
-    womensClothing.addEventListener("click", e => {
+    womensClothing.addEventListener("click", () => {
     })
