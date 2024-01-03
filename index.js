@@ -1,12 +1,26 @@
-// First attempts at adding all the products.
-fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
+const URL = `https://fakestoreapi.com/`;
 
-let electronics = [];
-let jewelery = [];
-let mensClothing = [];
-let womensClothing = [];
+const navbar = document.getElementbyId("navbar-link");
 
-// console.log(fetch);
-// Testing if this pulls up an array
+const electronics = navbar.querySelector(#electronics);
+const jewelery = navbar.querySelector(#jewelery);
+const mensClothing = navbar.querySelector(#mensClothing);
+const womensClothing = navbar.querySelector(#womensClothing)
+
+const creatCards = function (item) {
+    item.forEach(item) => {
+
+        const col = document.createElement(`div`);
+        const card = document.createElement(`div`);
+        const img = document.createElement(`img`)
+        const title = document.createElement(`h3`)
+        const description = document.createElement(`p`)
+        const price = document.createElement(`p`)
+    }
+}
+
+addToCartBtn.onclick = () => {
+    const item = {
+        id: 
+    }
+}

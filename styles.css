@@ -1,9 +1,16 @@
-/*
-Looking into spoonacular notes for styling help.
-*/
-.random-card {
+body {
     display: flex;
-    height: 45vh;
-    justify-content: center;
-    align-items: center;
+	align-content: center;
+	flex-direction: column;
+	overflow-x: hidden;
+	min-height: 100vh;
+	position: relative;
+}
+
+.navbar {
+    font-weight: bold;
+    width: 100%;
+    position:sticky;
+    top:0;
+    background-color: green;
 }
