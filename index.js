@@ -1,26 +1,28 @@
-const URL = `https://fakestoreapi.com/`;
+let apiURL = `https://fakestoreapi.com/`;
+let cart = [];
+let display = document.getElementById(`display`)
 
-const navbar = document.getElementbyId("navbar-link");
+const category = document.querySelectorAll(`display`)
 
-const electronics = navbar.querySelector(#electronics);
-const jewelery = navbar.querySelector(#jewelery);
-const mensClothing = navbar.querySelector(#mensClothing);
-const womensClothing = navbar.querySelector(#womensClothing)
+const electronics = document.getElementById(`electronics`);
+const jewelery = document.getElementById(`jewelery`);
+const mensClothing = document.getElementById(`mensClothing`);
+const womensClothing = document.getElementById(`womensClothing`)
 
+// 
 const creatCards = function (item) {
-    item.forEach(item) => {
-
+    item.forEach((item) => {
         const col = document.createElement(`div`);
         const card = document.createElement(`div`);
         const img = document.createElement(`img`)
         const title = document.createElement(`h3`)
         const description = document.createElement(`p`)
         const price = document.createElement(`p`)
-    }
-}
 
-addToCartBtn.onclick = () => {
-    const item = {
-        id: 
-    }
-}
+        col.classList.add(`col`);
+        card.classList.add(`card`)
+        img.classList.add(`card-img-top`);
+        title.classList.add(`card-title`);
+        description.classList.add(`card-text`);
+        price.classList.add(`price`);
+    })};
