@@ -1,3 +1,6 @@
+// empty array for the cart
+// fleshing out display function
+// assigning URL to API to fetch
 let apiURL = `https://fakestoreapi.com/`;
 let cart = [];
 let display = document.getElementById(`display`)
@@ -9,8 +12,8 @@ const jewelery = document.getElementById(`jewelery`);
 const mensClothing = document.getElementById(`mensClothing`);
 const womensClothing = document.getElementById(`womensClothing`)
 
-// 
-const creatCards = function (item) {
+// building the function to pull the card together
+const createCards = function (item) {
     item.forEach((item) => {
         const col = document.createElement(`div`);
         const card = document.createElement(`div`);
@@ -26,3 +29,18 @@ const creatCards = function (item) {
         description.classList.add(`card-text`);
         price.classList.add(`price`);
     })};
+
+    const fakeStore = async(endpoint) => {
+        const response = await fetch(apiURL + endpoint);
+        const data = await response.json();
+    }
+
+// Working on the event listeners.
+    electronics.addEventListener("click", e => {
+    })
+    jewelery.addEventListener("click", e => {
+    })
+    mensClothing.addEventListener("click", e => {
+    })
+    womensClothing.addEventListener("click", e => {
+    })
