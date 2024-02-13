@@ -5,6 +5,7 @@ body {
 	overflow-x: hidden;
 	min-height: 100vh;
 	position: relative;
+    background-color: cornflowerblue;
 }
 
 .navbar {
@@ -16,6 +17,7 @@ body {
 
 #display{
     align-content: center;
+    margin-top: 200px;
 }
 
 footer{

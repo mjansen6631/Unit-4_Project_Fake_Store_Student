@@ -28,11 +28,23 @@ const createCards = function (item) {
         title.classList.add(`card-title`);
         description.classList.add(`card-text`);
         price.classList.add(`price`);
+// set card attributes using our notes
+        card.className = 'card';
+        card.style.width = '18rem';
+        img.src = recipe.img;
+        img.className = 'card-img-top';
+        body.className = 'card-body'; 
+        title.className = 'card-title';
+        title.textContent = item.title;
+        btn.className = "btn btn-primary";
+        btn.textContent = 'Add to Cart';
     })};
+    
 
     const fakeStore = async(endpoint) => {
         const response = await fetch(apiURL + endpoint);
         const data = await response.json();
+        console.log(data);
     }
 
 // Working on the event listeners.
