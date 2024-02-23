@@ -1,58 +1,104 @@
 // empty array for the cart
 // fleshing out display function
 // assigning URL to API to fetch
-let apiURL = `https://fakestoreapi.com/`;
+const apiURL = `https://fakestoreapi.com/`;
 let cart = [];
-let display = document.getElementById(`display`)
 
-const category = document.querySelectorAll(`display`)
+const Display = document.querySelectorAll(`display`)
+const Electronics = document.getElementById(`electronics`);
+const Jewelery = document.getElementById(`jewelery`);
+const MensClothing = document.getElementById(`mensClothing`);
+const WomensClothing = document.getElementById(`womensClothing`)
 
-const electronics = document.getElementById(`electronics`);
-const jewelery = document.getElementById(`jewelery`);
-const mensClothing = document.getElementById(`mensClothing`);
-const womensClothing = document.getElementById(`womensClothing`)
+const removeElements = (element) =>{
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+};
+
+
 
 // building the function to pull the card together
-const createCards = function (item) {
-    item.forEach((item) => {
-        const col = document.createElement(`div`);
-        const card = document.createElement(`div`);
-        const img = document.createElement(`img`)
-        const title = document.createElement(`h3`)
-        const description = document.createElement(`p`)
-        const price = document.createElement(`p`)
+const displayCards = function(data){
+    data.forEach( product => {
+        let card = document.createElement(`div`);
+        let img = document.createElement(`img`)
+        let title = document.createElement(`h3`)
+        let accordion = document.createElement(`div`);
+        let accordionItem = document.createElement(`div`);
+        let accordionHeader = document.createElement(`h2`);
+        let accordionButton = document.createElement(`button`);
+        let accordionCollapse = document.createElement(`div`);
+        let accordionBody = document.createElement(`div`);
+        let description = document.createElement(`p`)
+        let price = document.createElement(`p`)
+        let addToCartButton = document.createElement(`button`);
 
-        col.classList.add(`col`);
-        card.classList.add(`card`)
-        img.classList.add(`card-img-top`);
-        title.classList.add(`card-title`);
-        description.classList.add(`card-text`);
-        price.classList.add(`price`);
-// set card attributes using our notes
+        //* Set attributes
+        cardContainer.className=`col`;
+        cardContainer.style.row= "rows-cols-1 rows-col-md-1 g-4";
         card.className = 'card';
         card.style.width = '18rem';
-        img.src = recipe.img;
+        img.src = product.image;
         img.className = 'card-img-top';
         body.className = 'card-body'; 
         title.className = 'card-title';
-        title.textContent = item.title;
-        btn.className = "btn btn-primary";
-        btn.textContent = 'Add to Cart';
-    })};
+        title.textContent = product.title;
+        accordion.classList.add(`accordion`)
+        accordionItem.classList.add(`accordion`);
+        accordionHeader.classList.add(`accordion-header`)
+        accordionButton.classList.add(`accordion-button`)
+        accordionButton.type=`button`;
+        accordionButton.textContent=`Description`;
+        accordionCollapse
+        accordionBody
+        description.textContent=product.description;
+        description.className=`card-text`;
+        price.textContent
+        price.className=`card-text`;
+
+        addToCartButton.onclick=()=>{
+            accordionButton.addEventListener(`click`, ()=>{
+                accordionContent.classList.toggle(`show`);
+            });
+        }
+        const newItem = {
+            id:product.id,
+            title:product.title,
+            cost:product.price.toFixed(2),
+            quantity: 1,
+        };
+        submitToCart(newItem);
+    })
+};    
+
+Electronics.addEventListener("click", () => {
+    e.preventDefault();
+    fakeStore(`category/Electronics`)
+});
+Jewelery.addEventListener("click", () => {
+    e.preventDefault()
+    fakeStore(`category/Jewelery`)
+});
+MensClothing.addEventListener("click", () => {
+    e.preventDefault()
+    fakeStore(`category/MensClothing`)
+});
+WomensClothing.addEventListener("click", () => {
+    e.preventDefault()
+    fakeStore(`category/WomensClothing`)
+});
+
+const fakeStore = async(endpoint) => {
+    try {
+        let response = await fetch(apiURL + endpoint);
+        let data = await response.json();
     
-
-    const fakeStore = async(endpoint) => {
-        const response = await fetch(apiURL + endpoint);
-        const data = await response.json();
-        console.log(data);
+    displayCards(data);}
+    catch (error){
+        console.error(err)
     }
-
-// Working on the event listeners.
-    electronics.addEventListener("click", () => {
-    })
-    jewelery.addEventListener("click", () => {
-    })
-    mensClothing.addEventListener("click", () => {
-    })
-    womensClothing.addEventListener("click", () => {
-    })
+};
+onload = () => {
+    fakeStore("");
+}

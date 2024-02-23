@@ -16,7 +16,7 @@ body {
 }
 
 #display{
-    align-content: center;
+    justify-content: center;
     margin-top: 200px;
 }
 
