@@ -10,12 +10,6 @@ const Jewelery = document.getElementById(`jewelery`);
 const MensClothing = document.getElementById(`mensClothing`);
 const WomensClothing = document.getElementById(`womensClothing`)
 
-const removeElements = (element) =>{
-    while (element.firstChild) {
-        element.removeChild(element.firstChild);
-    }
-};
-
 
 
 // building the function to pull the card together
@@ -50,11 +44,14 @@ const displayCards = function(data){
         accordionButton.classList.add(`accordion-button`)
         accordionButton.type=`button`;
         accordionButton.textContent=`Description`;
-        accordionCollapse
-        accordionBody
+        accordionButton.dataset.bsToggle = 'collapse';
+        accordionButton.dataset.bsTarget = `#collapse-${data.id}`;
+        accordionButton.ariaExpanded = 'true';
+        accordionButton.ariaControls = `collapse-${data.id}`;
+        accordionBody.textContent=`${product.description}`;
         description.textContent=product.description;
         description.className=`card-text`;
-        price.textContent
+        price.textContent=`$${product.price.toFixed(2)}`;
         price.className=`card-text`;
 
         addToCartButton.onclick=()=>{
@@ -70,6 +67,19 @@ const displayCards = function(data){
         };
         submitToCart(newItem);
     })
+
+    // * Append
+    accordionHeader.appendChild(accordionButton);
+    accordionBody.appendChild(description);
+    accordionBody.appendChild(price);
+    accordionCollapse.appendChild(accordionBody);
+    accordionItem.appendChild(accordionCollapse)
+    card.appendChild(title);
+    card.appendChild(image);
+    card.appendChild(cardBody);
+    card.appendChild(accordion);
+    card.appendChild(addToCartButton);
+    cardContainer.appendChild(card);    
 };    
 
 Electronics.addEventListener("click", () => {
@@ -91,14 +101,16 @@ WomensClothing.addEventListener("click", () => {
 
 const fakeStore = async(endpoint) => {
     try {
-        let response = await fetch(apiURL + endpoint);
+        let response = await fetch(`${apiUrl}/${endpoint}`);
         let data = await response.json();
     
     displayCards(data);}
-    catch (error){
+    catch (err){
         console.error(err)
     }
 };
-onload = () => {
+
+
+window.onload = () => {
     fakeStore("");
 }
